@@ -1,6 +1,6 @@
-let totalPrice = 0;
-let tax = 0;
-let grandTotal =0;
+var totalPrice = 0;
+var tax = 0;
+var grandTotal =0;
 
 // handling ticket amount
 function handleTicketAmount(airClass, isIncrease) {
