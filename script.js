@@ -1,3 +1,4 @@
+
 // handling ticket amount
 function handleTicketAmount(airClass, isIncrease) {
     const ticketInput = document.getElementById(airClass + "-count");
@@ -20,15 +21,16 @@ function calculateTotal() {
     const firstClassCount = getInputValue("firstclass");
     const ecoClassCount = getInputValue("economyclass");
 
-    const totalPrice = firstClassCount * 150 + ecoClassCount * 100;
+    totalPrice = firstClassCount * 150 + ecoClassCount * 100;
     document.getElementById("sub-total").innerText = "$" + totalPrice;
 
-    const tax = Math.round(totalPrice * 0.1);
+    tax = Math.round(totalPrice * 0.1);
     document.getElementById("vat-amount").innerText = "$" + tax;
 
-    const grandTotal = totalPrice + tax;
+    grandTotal = totalPrice + tax;
     document.getElementById("total-amount").innerText = "$" + grandTotal;
 }
+
 
 // converting values into integer number
 function getInputValue(airClass) {
@@ -47,7 +49,9 @@ bookNowBtn.addEventListener("click", function () {
     //calling the functions
     showNoOfSeats("firstclass-count", "first-seat");
     showNoOfSeats("economyclass-count", "eco-seat");
-
+    calculatingPrices("fare", totalPrice);
+    calculatingPrices("vat", tax);
+    calculatingPrices("total-fare", grandTotal);
 })
 
 // showing number of seats in table
@@ -55,6 +59,11 @@ function showNoOfSeats(airClass, seatOutput) {
     const accessClass = document.getElementById(airClass);
     const totalSeat = parseInt(accessClass.value);
     document.getElementById(seatOutput).innerText = totalSeat;
+}
+
+// showing number prices in table
+function calculatingPrices(price, output) {
+    document.getElementById(price).innerText = output;
 }
 
 
