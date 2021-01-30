@@ -17,10 +17,10 @@ function handleTicketAmount(airClass, isIncrease) {
 
 // calculating prices
 function calculateTotal() {
-    const phoneCount = getInputValue("firstclass");
-    const caseCount = getInputValue("economyclass");
+    const firstClassCount = getInputValue("firstclass");
+    const ecoClassCount = getInputValue("economyclass");
 
-    const totalPrice = phoneCount * 150 + caseCount * 100;
+    const totalPrice = firstClassCount * 150 + ecoClassCount * 100;
     document.getElementById("sub-total").innerText = "$" + totalPrice;
 
     const tax = Math.round(totalPrice * 0.1);
@@ -29,11 +29,12 @@ function calculateTotal() {
     const grandTotal = totalPrice + tax;
     document.getElementById("total-amount").innerText = "$" + grandTotal;
 }
+
 // converting values into integer number
 function getInputValue(airClass) {
-    const productInput = document.getElementById(airClass + "-count");
-    const productCount = parseInt(productInput.value);
-    return productCount;
+    const ticketInput = document.getElementById(airClass + "-count");
+    const ticketCount = parseInt(ticketInput.value);
+    return ticketCount;
 }
 
 // handling Book-now button
@@ -43,24 +44,18 @@ bookNowBtn.addEventListener("click", function () {
     bookingArea.style.display = "none";
     const ticketDetails = document.getElementById("ticket-details");
     ticketDetails.style.display = "block";
-
+    //calling the functions
     showNoOfSeats("firstclass-count", "first-seat");
     showNoOfSeats("economyclass-count", "eco-seat");
-    
+
 })
 
-// showing values in table
-function showNoOfSeats(airClass, seatOutput){
-    const accessFirstClass = document.getElementById(airClass);
-    totalFirstClass = parseInt(accessFirstClass.value);
-    document.getElementById(seatOutput).innerText = totalFirstClass;
-
-    // const accessEcoClass = document.getElementById("economyclass-count");
-    // totalEcoClass = parseInt
+// showing number of seats in table
+function showNoOfSeats(airClass, seatOutput) {
+    const accessClass = document.getElementById(airClass);
+    const totalSeat = parseInt(accessClass.value);
+    document.getElementById(seatOutput).innerText = totalSeat;
 }
-// const accessFirstClass = document.getElementById("firstclass-count");
-// totalFirstClass = parseInt(accessFirstClass.value);
-// document.getElementById("first-seat").innerText = totalFirstClass;
 
 
 
