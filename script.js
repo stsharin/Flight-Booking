@@ -63,7 +63,7 @@ function showNoOfSeats(airClass, seatOutput) {
 
 // showing number prices in table
 function calculatingPrices(price, output) {
-    document.getElementById(price).innerText = output;
+    document.getElementById(price).innerText = "$" + output;
 }
 
 
